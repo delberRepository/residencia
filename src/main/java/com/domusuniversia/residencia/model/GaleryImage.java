@@ -1,5 +1,6 @@
 package com.domusuniversia.residencia.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -24,6 +25,7 @@ public class GaleryImage {
     private String title;
     private String imageOrder;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "room_id")
     private Room room;

@@ -1,5 +1,6 @@
 package com.domusuniversia.residencia.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -26,6 +27,7 @@ public class Amenity {
     private String icon;
     private String description;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "amenities")
     private List<Room> rooms = new ArrayList<>();
 
