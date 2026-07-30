@@ -2,6 +2,7 @@ const navigationItems = [
   { label: 'Inicio', href: '#inicio' },
   { label: 'Sobre nosotros', href: '#sobre-nosotros' },
   { label: 'Servicios', href: '#servicios' },
+  { label: 'Espacios', href: '#espacios' },
   { label: 'Contacto', href: '#contacto' },
 ]
 

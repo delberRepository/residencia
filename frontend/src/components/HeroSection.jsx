@@ -1,11 +1,11 @@
-import heroImage from '../assets/residence-hero.png'
+import heroImage from '../assets/residence-hero.jpg'
 
 function HeroSection() {
   return (
     <section
       id="inicio"
       className="hero-section"
-      style={{ backgroundImage: `linear-gradient(90deg, rgba(18, 32, 42, 0.86), rgba(18, 32, 42, 0.42)), url(${heroImage})` }}
+      style={{ backgroundImage: `linear-gradient(90deg, rgba(18, 32, 42, 0.60), rgba(18, 32, 42, 0.42)), url(${heroImage})` }}
     >
       <div className="hero-content">
         <p className="eyebrow">Residencia universitaria</p>

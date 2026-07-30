@@ -5,6 +5,7 @@ import Footer from './components/Footer.jsx'
 import HeroSection from './components/HeroSection.jsx'
 import Navbar from './components/Navbar.jsx'
 import ServicesSection from './components/ServicesSection.jsx'
+import SpacesSection from './components/SpacesSection.jsx'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <HeroSection />
         <AboutSection />
         <ServicesSection />
+        <SpacesSection />
         <ContactSection />
       </main>
       <Footer />

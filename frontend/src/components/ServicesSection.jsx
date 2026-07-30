@@ -17,6 +17,14 @@ const services = [
     title: 'Servicios diarios',
     description: 'Gestion practica de solicitudes, mantenimiento y comunicacion directa con el equipo de residencia.',
   },
+  {
+    title: 'Nueva Construcción',
+    description: 'Instalaciones a estrenar.',
+  },
+  {
+    title: 'Seguridad',
+    description: 'Control de acceso 24/7.',
+  },
 ]
 
 function ServicesSection() {
@@ -24,8 +32,8 @@ function ServicesSection() {
     <section id="servicios" className="section services-section">
       <div className="section-inner">
         <SectionHeader
-          eyebrow="Servicios"
-          title="Todo lo necesario para vivir el curso con estabilidad"
+          /*eyebrow="Servicios"*/
+          title="¿Que ofrecemos en nuestra residencia?"
           description="Una estructura pensada para que el estudiante pueda centrarse en su vida academica sin perder comodidad."
         />
         <div className="services-grid">
@@ -38,7 +46,9 @@ function ServicesSection() {
         </div>
       </div>
     </section>
+
   )
+
 }
 
 export default ServicesSection

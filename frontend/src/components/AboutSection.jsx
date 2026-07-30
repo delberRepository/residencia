@@ -1,9 +1,11 @@
 import SectionHeader from './SectionHeader.jsx'
+import studentsImage from '../assets/estudiantes34.png'
 
 const highlights = [
-  { value: '24/7', label: 'Atencion y soporte residencial' },
-  { value: '5 min', label: 'Conexion con zonas universitarias' },
-  { value: '100%', label: 'Espacios pensados para estudiantes' },
+  { value: '5000', label: 'm2' },
+  { value: '60', label: 'Habitaciones' },
+  { value: '6', label: 'Salones' },
+  { value: '2', label: 'piscinas' },
 ]
 
 function AboutSection() {
@@ -11,10 +13,14 @@ function AboutSection() {
     <section id="sobre-nosotros" className="section about-section">
       <div className="section-inner about-grid">
         <SectionHeader
-          eyebrow="Sobre nosotros"
-          title="Una residencia con vida academica y ambiente tranquilo"
-          description="Cuidamos los detalles que importan en el dia a dia: descanso, estudio, convivencia y una comunicacion clara con residentes y familias."
+            /*eyebrow="Sobre nosotros"*/
+          title="Bienvenido a nuestra residencia de estudiantes"
+          description="En nuestra residencia ofrecemos un entorno seguro, confortable y cuidadosamente diseñado para favorecer el estudio y el bienestar. Ponemos a disposición de nuestros residentes instalaciones modernas, servicios de calidad y un ambiente tranquilo que les permite concentrarse en su desarrollo académico y personal."
         />
+
+        <figure className="about-image">
+          <img src={studentsImage} alt="Estudiantes en la residencia" />
+        </figure>
         <div className="highlight-list">
           {highlights.map((item) => (
             <div className="highlight-item" key={item.label}>

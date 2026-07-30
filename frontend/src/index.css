@@ -1,9 +1,9 @@
 :root {
-  --accent: #127c74;
+  --accent: #7ac4f6;
   --border: #d9e1df;
   --ink: #17242a;
   --muted: #5f6f73;
-  --surface: #f3f7f5;
+  --surface: #ffffff;
   color: var(--ink);
   background: #ffffff;
   font-family:
