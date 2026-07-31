@@ -3,9 +3,9 @@ function ContactSection() {
     <section id="contacto" className="section contact-section">
       <div className="section-inner contact-grid">
         <div>
-          <p className="eyebrow">Contacto</p>
-          <h2>Hablemos de tu estancia</h2>
-          <p>
+          <p className="letra-blanca">Contacto</p>
+          <h2 className="letra-blanca">Hablemos de tu estancia</h2>
+          <p className="letra-blanca">
             Dejanos tus datos y el equipo de la residencia te respondera para resolver dudas sobre habitaciones, disponibilidad y servicios.
           </p>
           <address className="contact-details">
