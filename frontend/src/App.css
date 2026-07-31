@@ -575,37 +575,47 @@
   }
 
   .menu-button {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
     background: #d9ecf6;
     border-radius: 6px;
+    cursor: pointer;
+    padding: 8px;
+    color: var(--ink);
   }
 
+  /* Forzamos a que el logo y el botón se queden en los extremos */
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: auto;
+    padding: 16px 0;
+    position: relative; /* Clave para posicionar el despliegue absoluto */
+  }
+
+  /* El menú móvil se oculta y flota sobre el contenido */
   .nav-links {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-
-    display: flex;
+    display: none;
     flex-direction: column;
-
-    background: white;
-
-    padding: 1.5rem;
-    gap: 1rem;
-
-    box-shadow: 0 10px 25px rgba(0,0,0,.08);
-
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: .3s;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    position: absolute;
+    top: 100%; /* Aparece justo pegado abajo de la barra */
+    left: 0;
+    padding: 20px 0;
+    gap: 16px;
+    border-bottom: 1px solid rgba(20, 32, 38, 0.1);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+    z-index: 9;
   }
 
+  /* Clase que inyecta React cuando menuOpen es true */
   .nav-links.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .section-header h2{
     margin-left: 23px;
