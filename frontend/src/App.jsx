@@ -6,6 +6,7 @@ import HeroSection from './components/HeroSection.jsx'
 import Navbar from './components/Navbar.jsx'
 import ServicesSection from './components/ServicesSection.jsx'
 import SpacesSection from './components/SpacesSection.jsx'
+import PortfolioSection from "./components/PortfolioSection.jsx";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <AboutSection />
         <ServicesSection />
         <SpacesSection />
+        <PortfolioSection/>
         <ContactSection />
       </main>
       <Footer />
