@@ -1,6 +1,8 @@
 package com.domusuniversia.residencia.model;
 
 public enum StayDuration {
-    SEMESTER,
-    FULL_YEAR
+    FIRST_SEMESTER,
+    SECOND_SEMESTER,
+    FULL_YEAR,
+    ACADEMIC_COURSE
 }
