@@ -26,6 +26,9 @@ public class Room {
     private Boolean available;
 
     @Enumerated(EnumType.STRING)
+    private StayDuration stayDuration;
+
+    @Enumerated(EnumType.STRING)
     private RoomType tipo;
 
     @ManyToMany
