@@ -1,3 +1,18 @@
 spring:
   application:
     name: residencia
+
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/residencia
+    username: postgres
+    password: tu_password
+
+  security:
+    user:
+      name: admin
+      password: admin
+
+  jpa:
+    hibernate:
+      ddl-auto: update

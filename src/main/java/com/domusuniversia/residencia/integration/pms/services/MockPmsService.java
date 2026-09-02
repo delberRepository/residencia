@@ -1,8 +1,8 @@
 package com.domusuniversia.residencia.integration.pms.services;
-import com.domusuniversia.residencia.integration.pms.interfaces.PmsProvider;
-import com.domusuniversia.residencia.integration.pms.model.PmsAvailabilityRequest;
-import com.domusuniversia.residencia.integration.pms.model.PmsAvailabilityResponse;
-import com.domusuniversia.residencia.integration.pms.model.PmsAvailabilityRoom;
+import com.domusuniversia.residencia.integration.pms.interfaces.PmsRepository;
+import com.domusuniversia.residencia.integration.pms.dto.PmsAvailabilityRequest;
+import com.domusuniversia.residencia.integration.pms.dto.PmsAvailabilityResponse;
+import com.domusuniversia.residencia.integration.pms.dto.PmsAvailabilityRoom;
 import com.domusuniversia.residencia.model.Room;
 import com.domusuniversia.residencia.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 import java.util.List;
 @RequiredArgsConstructor
 @Service
-public class MockPmsService implements PmsProvider {
+public class MockPmsService implements PmsRepository {
     private final RoomRepository roomRepository;
 
     @Override
@@ -24,6 +24,7 @@ public class MockPmsService implements PmsProvider {
                 request.getStayDuration()
         );
         //aqui se pasa el parametro de la peticion del usuario, que es tipo de habitacion,
+        // la duracion de la estancia,
         // y habitacion disponible que se traduce como true
         //de esta manera solo se creara una lista con las habitaciones disponibles y del tipo seleccionado
         //por el usuario
@@ -33,7 +34,10 @@ public class MockPmsService implements PmsProvider {
         List<PmsAvailabilityRoom> availableRooms = rooms.stream()
                 .map(room -> {
                     PmsAvailabilityRoom availableRoom = new PmsAvailabilityRoom();
+                    //aqui voy a ir añadiendo propiedades
                     availableRoom.setRoomId(room.getId());
+                    availableRoom.setDescription(room.getDescription());
+                    availableRoom.setNumber(room.getNumero());
                     availableRoom.setPmsRoomId("MOCK-" + room.getId());
                     availableRoom.setPrice(BigDecimal.valueOf(5000));
 

@@ -1,4 +1,4 @@
-package com.domusuniversia.residencia.integration.pms.model;
+package com.domusuniversia.residencia.integration.pms.dto;
 
 import com.domusuniversia.residencia.model.RoomType;
 import com.domusuniversia.residencia.model.StayDuration;

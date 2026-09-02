@@ -1,5 +1,6 @@
 package com.domusuniversia.residencia.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -19,6 +20,7 @@ public class FAQ {
     private Long id;
     private String question;
     private String answer;
+    @Column(name = "display_order")
     private Integer order;
 
     public FAQ(String question, String answer, Integer order) {
