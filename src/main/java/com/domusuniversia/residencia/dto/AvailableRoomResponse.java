@@ -16,15 +16,10 @@ import java.math.BigDecimal;
 public class AvailableRoomResponse {
 //plantilla para los datos de respuesta dto
     private Long roomId;
-    private String pmsRoomId;
     private BigDecimal price;
-
     private String numero;
-    private String floor;
     private String description;
     private String capacity;
-    private Boolean available;
-
     private RoomType tipo;
-    private StayDuration stayDuration;
+
 }

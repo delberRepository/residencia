@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 @Service
 @RequiredArgsConstructor
 public class AvailabilityService {
@@ -19,7 +20,7 @@ public class AvailabilityService {
     //este servicio usa los repos de pms y room implementados por cualquier servicio
     //este metodo es unico de este servicio no lo sobreescribe de nadie
     //Propiedades
-    private final PmsRepository pmsRepository;
+    private final  PmsRepository pmsRepository;
     private final RoomRepository roomRepository;
 
 
@@ -56,16 +57,12 @@ public class AvailabilityService {
 
         //aqui le voy introduciendo los datos que obtengo de mi base de datos y del pms
         response.setRoomId(room.getId());
-        response.setPmsRoomId(pmsRoom.getPmsRoomId());
         response.setPrice(pmsRoom.getPrice());
-
         response.setNumero(room.getNumero());
-        response.setFloor(room.getFloor());
         response.setDescription(room.getDescription());
         response.setCapacity(room.getCapacity());
-        response.setAvailable(room.getAvailable());
         response.setTipo(room.getTipo());
-        response.setStayDuration(room.getStayDuration());
+
 
         return response;
     }

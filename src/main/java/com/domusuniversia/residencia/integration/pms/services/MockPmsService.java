@@ -1,9 +1,10 @@
 package com.domusuniversia.residencia.integration.pms.services;
+import com.domusuniversia.residencia.integration.pms.dto.*;
 import com.domusuniversia.residencia.integration.pms.interfaces.PmsRepository;
-import com.domusuniversia.residencia.integration.pms.dto.PmsAvailabilityRequest;
-import com.domusuniversia.residencia.integration.pms.dto.PmsAvailabilityResponse;
-import com.domusuniversia.residencia.integration.pms.dto.PmsAvailabilityRoom;
+import com.domusuniversia.residencia.model.Reservation;
+import com.domusuniversia.residencia.model.ReservationStatus;
 import com.domusuniversia.residencia.model.Room;
+import com.domusuniversia.residencia.repository.ReservationRepository;
 import com.domusuniversia.residencia.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,7 @@ import java.util.List;
 @Service
 public class MockPmsService implements PmsRepository {
     private final RoomRepository roomRepository;
+    private final ReservationRepository reservationRepository;
 
     @Override
     public PmsAvailabilityResponse getAvailability(PmsAvailabilityRequest request) {
@@ -53,6 +55,19 @@ public class MockPmsService implements PmsRepository {
 
                         );
 
+    }
+    @Override
+    public PmsReservationResponse createReservation(
+            PmsReservationRequest request) {
+
+        PmsReservationResponse response = new PmsReservationResponse();
+
+        response.setReservationId("MOCK-" + System.currentTimeMillis());
+        response.setStatus(ReservationStatus.CONFIRMED);
+        response.setRoomType(request.getRoomType());
+        response.setStayDuration(request.getStayDuration());
+
+        return response;
     }
 
     //el mock es como un tester temporal hasta que tengamos las PMS reales

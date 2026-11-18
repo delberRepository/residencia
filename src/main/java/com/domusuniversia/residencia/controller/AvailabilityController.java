@@ -17,6 +17,7 @@ public class AvailabilityController {
     @PostMapping
     public List<AvailableRoomResponse> getAvailableRooms(@RequestBody PmsAvailabilityRequest request)
     {
+
         return  availabilityservice.getAvailableRooms(request);
     }
 }
