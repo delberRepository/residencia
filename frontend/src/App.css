@@ -61,6 +61,7 @@
   width: min(1120px, calc(100% - 32px));
   margin: 0 auto;
   padding: 96px 0;
+  margin-left: 70px;
 }
 
 .hero-content h1 {
@@ -810,6 +811,8 @@
 
   .hero-content {
     padding: 72px 0;
+    margin-left: 10px;
+
   }
 
   .hero-content h1 {

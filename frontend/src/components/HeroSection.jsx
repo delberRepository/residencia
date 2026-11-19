@@ -1,4 +1,4 @@
-import heroImage from '../assets/residence-hero.jpg'
+import heroImage from '../assets/fachada.png'
 import { useState } from 'react'
 
 function HeroSection() {
@@ -14,7 +14,7 @@ function HeroSection() {
     <section
       id="inicio"
       className="hero-section"
-      style={{ backgroundImage: `linear-gradient(90deg, rgba(18, 32, 42, 0.60), rgba(18, 32, 42, 0.42)), url(${heroImage})` }}
+      style={{ backgroundImage: `linear-gradient(90deg, rgba(18, 32, 42, 0.60), rgba(18, 32, 42, 0.92)), url(${heroImage})` }}
     >
       <div className="hero-content">
         {showReservationForm ? (
@@ -75,6 +75,7 @@ function HeroSection() {
           </div>
         ) : (
           <>
+
         <p className="eyebrow">Residencia universitaria</p>
         <h1>Un lugar comodo para estudiar, convivir y sentirte en casa</h1>
         <p className="hero-copy">
