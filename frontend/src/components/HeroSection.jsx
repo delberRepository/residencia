@@ -44,6 +44,24 @@ function HeroSection() {
                   <input name="estudios" required />
                 </label>
                 <label>
+                  Fecha prevista de entrada
+                  <input
+                      name="fechaEntrada"
+                      type="date"
+                      min="2027-05-01"
+                      required
+                  />
+                </label>
+                <label>
+                  Tipo de habitación
+                  <select name="tipoHabitacion" className="form-input" required>
+                    <option value="">Seleccionar</option>
+                    <option value="normal">Basic</option>
+                    <option value="premium">Premium</option>
+                  </select>
+                </label>
+
+                <label>
                   Correo electrónico
                   <input name="correo" type="email" autoComplete="email" required />
                 </label>
