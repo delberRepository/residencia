@@ -73,8 +73,13 @@ function HeroSection() {
                   <input name="consentimiento" type="checkbox" required />
                   <span>Consiento la cesión de los datos personales a Domus Universia.</span>
                 </label>
+                <div className="detailsTecsanit">Responsable: Tecsanit, S.L. Finalidad: gestionar tu solicitud de prereserva y contactar contigo.
+                  Legitimación: aplicación de medidas precontractuales solicitadas por ti (art. 6.1.b RGPD).
+                  Destinatarios: proveedores necesarios para prestar el servicio, bajo las garantías legales correspondientes.
+                  Conservación: durante el tiempo necesario para gestionar la solicitud y atender posibles responsabilidades legales.
+                  Puedes ejercer tus derechos escribiendo a privacy@domusuniversia.com</div>
                 <details className="privacy-details">
-                  <summary>Responsable: Residencias de Estudiantes Domus Universia. Finalidad: informarte sobre nuestros servicios. Base: tu consentimiento. Cesión: si aceptas, podremos compartir tus datos con entidades del Grupo Domus Universia. Derechos: acceso, rectificación, supresión, portabilidad y otrosFinalidad: gestionar tu solicitud de prereserva y contactar contigo. Legitimación: aplicación de medidas precontractuales solicitadas por ti (art. 6.1.b RGPD). Destinatarios: proveedores necesarios para prestar el servicio, bajo las garantías legales correspondientes. Conservación: durante el tiempo necesario para gestionar la solicitud y atender posibles responsabilidades legales. Puedes ejercer tus derechos escribiendo a privacy@domusuniversia.com.</summary>
+                  <summary>Consulta nuestra Política de Privacidad para obtener toda la información sobre el tratamiento de tus datos.</summary>
                   <div className="privacy-full-text">
 
                     <h3>POLÍTICA DE PRIVACIDAD</h3>
