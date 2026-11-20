@@ -104,7 +104,7 @@ function HeroSection() {
             Solicitar informacion
           </a>
           <button className="primary-button" type="button" onClick={() => setShowReservationForm(true)}>
-            Reserva ya
+            Reserva ya tu plaza
           </button>
           { /*<a className="secondary-button" href="#servicios">
             Ver servicios
