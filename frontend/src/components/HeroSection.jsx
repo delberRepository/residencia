@@ -4,10 +4,42 @@ import { useState } from 'react'
 function HeroSection() {
   const [showReservationForm, setShowReservationForm] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault()
-    setSubmitted(true)
+    setSubmitting(true)
+    setSubmitError('')
+
+    const formData = new FormData(event.currentTarget)
+    const request = {
+      name: formData.get('name'),
+      surname: formData.get('surname'),
+      birthDate: formData.get('birthDate'),
+      entryDate: formData.get('entryDate'),
+      education: formData.get('education'),
+      stayDuration: formData.get('stayDuration'),
+      roomType: formData.get('roomType'),
+      email: formData.get('email'),
+      phoneNumber: formData.get('phoneNumber'),
+      consent: formData.get('consent') === 'on',
+    }
+
+    try {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080'
+      const response = await fetch(`${apiUrl}/api/pre-save`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(request),
+      })
+      if (!response.ok) throw new Error('No se pudo guardar la solicitud. Inténtalo de nuevo.')
+      setSubmitted(true)
+    } catch (error) {
+      setSubmitError(error.message || 'No se pudo enviar la solicitud. Comprueba tu conexión e inténtalo de nuevo.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -23,54 +55,55 @@ function HeroSection() {
             <h1>Solicitud de reserva</h1>
             {submitted ? (
               <p className="reservation-success" role="status">
-                Gracias. Tu solicitud se ha validado en este formulario, pero todavía no se ha enviado a la residencia.
+                Gracias. Hemos recibido tu solicitud de prereserva.
               </p>
             ) : (
               <form className="reservation-form" onSubmit={handleSubmit}>
                 <label>
                   Nombre
-                  <input name="nombre" autoComplete="given-name" required />
+                  <input name="name" autoComplete="given-name" required />
                 </label>
                 <label>
                   Apellidos
-                  <input name="apellidos" autoComplete="family-name" required />
+                  <input name="surname" autoComplete="family-name" required />
                 </label>
                 <label>
                   Fecha de nacimiento
-                  <input name="fechaNacimiento" type="date" autoComplete="bday" required />
+                  <input name="birthDate" type="date" autoComplete="bday" required />
                 </label>
                 <label>
                   Estudios a realizar
-                  <input name="estudios" required />
+                  <input name="education" required />
                 </label>
                 <label>
-                  Fecha prevista de entrada
-                  <input
-                      name="fechaEntrada"
-                      type="date"
-                      min="2027-05-01"
-                      required
-                  />
+                  Tipo de estancia
+                  <select name="stayDuration" className="form-input" required>
+                    <option value="">Seleccionar</option>
+                    <option value="FIRST_SEMESTER">Primer semestre</option>
+                    <option value="SECOND_SEMESTER">Segundo semestre</option>
+                    <option value="ACADEMIC_COURSE">Curso completo</option>
+                    <option value="FULL_YEAR">Año completo</option>
+                  </select>
                 </label>
                 <label>
                   Tipo de habitación
-                  <select name="tipoHabitacion" className="form-input" required>
+                  <select name="roomType" className="form-input" required>
                     <option value="">Seleccionar</option>
-                    <option value="normal">Basic</option>
-                    <option value="premium">Premium</option>
+                    <option value="BASIC">Basic</option>
+                    <option value="PREMIUM">Premium</option>
                   </select>
                 </label>
 
                 <label>
                   Correo electrónico
-                  <input name="correo" type="email" autoComplete="email" required />
+                  <input name="email" type="email" autoComplete="email" required />
                 </label>
                 <label>
                   Teléfono
-                  <input name="telefono" type="tel" autoComplete="tel" required />
+                  <input name="phoneNumber" type="tel" autoComplete="tel" required />
                 </label>
                 <label className="reservation-consent">
-                  <input name="consentimiento" type="checkbox" required />
+                  <input name="consent" type="checkbox" required />
                   <span>Consiento la cesión de los datos personales a Domus Universia.</span>
                 </label>
                 <div className="detailsTecsanit">Responsable: Tecsanit, S.L. Finalidad: gestionar tu solicitud de prereserva y contactar contigo.
@@ -287,6 +320,7 @@ function HeroSection() {
 
                   </div>
                 </details>
+                {submitError && <p className="reservation-error" role="alert">{submitError}</p>}
                 <div className="reservation-form-actions">
                   <button className="secondary-button" type="button" onClick={() => {
                     setShowReservationForm(false);
@@ -294,7 +328,9 @@ function HeroSection() {
                   }}>
                     Volver
                   </button>
-                  <button className="primary-button" type="submit">Enviar solicitud</button>
+                  <button className="primary-button" type="submit" disabled={submitting}>
+                    {submitting ? 'Enviando…' : 'Enviar solicitud'}
+                  </button>
                 </div>
               </form>
             )}
