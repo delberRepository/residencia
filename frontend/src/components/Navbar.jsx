@@ -7,6 +7,7 @@ const navigationItems = [
   { label: "Servicios", href: "#servicios" },
   { label: "Habitaciones", href: "#espacios" },
   { label: "Contacto", href: "#contacto" },
+  { label: "Area residentes", href: "https://www.residentes.domusuniversia.com" },
 ];
 
 function Navbar() {

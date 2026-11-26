@@ -11,16 +11,32 @@ import foto2 from "../assets/foto2.png";
 
 const spaces = [
   {
-    title: "Basic",
+    title: "Residence",
     bed: "Cama 120x200",
     popular: false,
-    src: foto2,
+    src: foto1,
+    desc: "Apartamento compartido",
   },
   {
-    title: "Premium",
+    title: "Studio Premium",
     bed: "Cama 150x200",
     popular: true,
+    src: foto2,
+    desc: "Habitación exterior",
+  },
+  {
+    title: "Studio ",
+    bed: "Cama 130x200",
+    popular: false,
     src: foto1,
+    desc: "Habitación exterior",
+  },
+  {
+    title: "Studio Lite",
+    bed: "Cama 140x200",
+    popular: true,
+    src: foto1,
+    desc: "Habitación exterior",
   },
 ];
 
@@ -30,7 +46,7 @@ function SpacesSection() {
         <div className="section-inner">
           <SectionHeader
               title="Tus espacios personales"
-              description="Dos tipos de habitación con equipamiento funcional, luz natural y todo lo necesario para el día a día universitario."
+              description="Contamos con varios modelos de habitación con equipamiento funcional, luz natural y todo lo necesario para el día a día universitario."
           />
 
           <div className="spaces-grid">
@@ -65,8 +81,9 @@ function SpacesSection() {
 
                       <li>
                         <Building2 size={20} />
-                        Habitación exterior
+                        {space.desc}
                       </li>
+
                     </ul>
                   </div>
                 </article>
